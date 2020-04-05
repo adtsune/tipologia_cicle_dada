@@ -1,3 +1,5 @@
+import requests
+#from bs4 import BeautifulSoup
 import json
 import jsonstat
 import pandas as pd
@@ -28,7 +30,7 @@ def llegir_pagina(url, filename):
     page=requests.get(url)
     
     # Desem una còpia local de la pàgina descarregada.
-    f = open(filename ,"a")
+    f = open(filename,"a", encoding="utf-8")
     f.write(page.text)
     f.close()
 
