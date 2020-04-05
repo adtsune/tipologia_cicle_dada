@@ -159,7 +159,7 @@ dict_indicators_UN = de_soup_a_dict(list_soup)
 # Creem una llista que contingui el nom dels atributs (header del csv):
 columns = ["country", "year"]
 
-"""for k, m in enumerate(list_soup[0].find_all('tbody')):
+for k, m in enumerate(list_soup[0].find_all('tbody')):
     if k >= 2 and (k <= len(list_soup[0].find_all('tbody')) - 3):
         cell_indicator = m.find_all('td')
         for n in range(len(cell_indicator)):
@@ -170,7 +170,7 @@ columns = ["country", "year"]
                 text_small = cell_small.find(text=True)
                 columns.append(text + text_small)
 print(columns)
-print(len(columns))"""
+print(len(columns))
 
 # Convertir els diccionaris a DataFrame per integrar els indicadors del Banc Mundial
 
