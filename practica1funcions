@@ -1,0 +1,58 @@
+import json
+import jsonstat
+import pandas as pd
+import os.path
+import time
+
+
+# llegir_pagina: Llegir una pàgina html que retornem en un objecte tipus String
+def llegir_pagina(url, filename):
+
+  # Si la pàgina s'ha descarregat previament, fem servir la copia local
+  if os.path.isfile(filename):
+
+    f = open(filename,"r")
+    contingut = f.read()
+    f.close()
+
+  else:
+
+    s=requests.session()
+
+    headers = {
+      "User-Agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:72.0) Gecko/20100101 Firefox/72.0"
+    }
+
+    page = s.get(url, headers=headers)
+
+    page=requests.get(url)
+    
+    # Desem una còpia local de la pàgina descarregada.
+    f = open(filename ,"a")
+    f.write(page.text)
+    f.close()
+
+    contingut = page.text
+
+  return contingut
+
+# llegir_indicador_world_bank: Funció per obtenir un indicador del Banc Mundial (via API)
+
+def llegir_indicador_world_bank(indicador):
+  # Consultem via API la web del Banc Mundial.
+  # La funció retorna un Panda DataFrame amb les columnes "country","year","<indicador>"
+  
+  filename = os.getcwd() + "/" + indicador + ".jsonstat"
+  url = "https://api.worldbank.org/v2/country/all/indicator/" + indicador + "?format=jsonstat"
+
+  if os.path.isfile(filename):
+    jstat = jsonstat.from_file(filename)
+  else:
+    jstat = jsonstat.from_string(jsonstat.download(url,filename))
+
+  df = jstat.dataset(0).to_data_frame(content='id')
+  
+  df.drop(columns="series",inplace=True)
+  df.rename(columns={"Value":indicador},inplace=True)
+
+  return df
