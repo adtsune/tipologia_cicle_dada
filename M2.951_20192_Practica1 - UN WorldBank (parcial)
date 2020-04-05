@@ -30,7 +30,7 @@ page_index = llegir_pagina("http://data.un.org/en/index.html","UNData.index.html
 soup_index = BeautifulSoup(page_index, features="html.parser")
 
 # Observem la estructura imbricada del document html
-# print(soup_index.prettify())
+#print(soup_index.prettify())
 
 # Creem una lista amb les URL de cada país (enllaços en format "iso/<pais>.html")
 list_url = []
@@ -66,7 +66,7 @@ for i, url in enumerate(list_url[:3]):
     fp = llegir_pagina("http://data.un.org/en/" + url, filename)
     soup = BeautifulSoup(fp, features="html.parser")
     list_soup.append(soup)
-print(list_soup)
+
 
 
 # print(soup_af.prettify())
@@ -153,6 +153,7 @@ def de_soup_a_dict(list_soup):
 # - No tots els paisos tenen els mateixos indicadors
 
 dict_indicators_UN = de_soup_a_dict(list_soup)
+print(dict_indicators_UN)
 
 # print(dict_indicators_UN)
 
@@ -197,3 +198,4 @@ for indBM in indicadors_BM:
     dfUN = dfUN.merge(df1[df1['year'].isin(['2005', '2010', '2019'])], how='outer', on=['country', 'year'])
 
 # PENDENT: Pas final guardem el DataFrame dfUN com a .csv
+print(dfUN.head())
