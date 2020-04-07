@@ -58,3 +58,18 @@ def llegir_indicador_world_bank(indicador):
   df.rename(columns={"Value":indicador},inplace=True)
 
   return df
+
+# Funció que retorna un dataset amb la llista de paisos ISO3166 de la web del IBAN
+def obtenir_llista_iso3166():
+  ccodes = llegir_pagina("https://www.iban.com/country-codes","iso_country_codes.html")
+
+  bs = BeautifulSoup(ccodes, features="html5lib")
+
+  ll = []
+  for i in bs.body.table.tbody.find_all("tr"): 
+    r =i.find_all("td"); 
+    ll.append([r[0].text,r[1].text,r[2].text])
+
+  df = pd.DataFrame(ll,columns=['country','ISO2','ISO3'])
+
+  return df
