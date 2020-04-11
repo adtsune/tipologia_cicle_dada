@@ -1,5 +1,5 @@
 import requests
-#from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup
 import json
 import jsonstat
 import pandas as pd
@@ -42,7 +42,7 @@ def llegir_pagina(url, filename):
 
 def llegir_indicador_world_bank(indicador):
   # Consultem via API la web del Banc Mundial.
-  # La funció retorna un Panda DataFrame amb les columnes "country","year","<indicador>"
+  # La funció retorna un Panda DataFrame amb les columnes "ISO3","year","<indicador>"
   
   filename = os.getcwd() + "/" + indicador + ".jsonstat"
   url = "https://api.worldbank.org/v2/country/all/indicator/" + indicador + "?format=jsonstat"
@@ -55,7 +55,7 @@ def llegir_indicador_world_bank(indicador):
   df = jstat.dataset(0).to_data_frame(content='id')
   
   df.drop(columns="series",inplace=True)
-  df.rename(columns={"Value":indicador},inplace=True)
+  df.rename(columns={"country":"ISO3","Value":indicador},inplace=True)
 
   return df
 
