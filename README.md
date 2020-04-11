@@ -26,7 +26,6 @@
 # en format .csv. 
 
 
-
 # Llista indicadors UN data
 indicadors_UN = ["GDP: Gross domestic product (million current US$)", "GDP per capita (current US$)",
                  "GDP growth rate (annual %, const. 2010 prices)", "Unemployment (% of labour force)",
