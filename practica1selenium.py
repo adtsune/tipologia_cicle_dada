@@ -17,8 +17,6 @@ import re
 
 def obtenir_urls_paisos_UN(navegador):
 
-  # return ["http://data.un.org/en/iso/af.html"]
-
   # Obtenir la llista de països a partir de la pàgina index
   navegador.get("http://data.un.org/en/index.html")
 
@@ -43,11 +41,16 @@ def analitzar_taula(ISO2, taula):
 
   df = pd.DataFrame()
 
+  indicadors_UN = ["GDP: Gross domestic product (million current US$)",
+                   "GDP growth rate (annual %, const. 2010 prices)", "Unemployment (% of labour force)",
+                   "Education: Government expenditure (% of GDP)", "Health: Current expenditure (% of GDP)",
+                   "Health: Physicians (per 1 000 pop.)", "Infant mortality rate (per 1 000 live births)"]
+
   # Només s'han d'analitzar les taules amb indicadors.
   # S'identifiquen perque tenen la paraula "indicator" a l'element <summary>
   summary = taula.find_element_by_tag_name("summary").text
 
-  if not re.search('indicators',summary): 
+  if not re.search('indicators',summary):
     return df;
 
   print (summary + "...", end=" ", flush=True)
@@ -63,15 +66,16 @@ def analitzar_taula(ISO2, taula):
   # Obtenim els indicadors de les files
 
   for fila in taula.find_elements_by_xpath("table/tbody/tr"):
-
     indicador = fila.find_element_by_tag_name("td").get_attribute("innerText").replace(u'\xa0', u' ')
-    valors = [x.get_attribute("innerText").replace(" ","") for x in fila.find_elements_by_tag_name("small")][1:]
-#    print(indicador)
-#    print(valors)
+    if indicador in indicadors_UN:
+      valors = [x.get_attribute("innerText").replace("...", "").replace(" ","") for x in fila.find_elements_by_tag_name("small")][1:]
+  #   print(indicador)
+  #   print(valors)
 
     # Incorporar els valors al dataframe
-    for year,valor in zip(years,valors):
-      df = df.combine_first(pd.DataFrame(data=[valor],columns=[indicador],index=[(ISO2,year)]))
+
+      for year,valor in zip(years,valors):
+        df = df.combine_first(pd.DataFrame(data=[valor],columns=[indicador],index=[(ISO2,year)]))
 
   return df
 
@@ -123,7 +127,7 @@ def obtenir_indicadors_UN():
 
   url_paisos = obtenir_urls_paisos_UN(navegador)
 
-  for url_pais in url_paisos[:5]:
+  for url_pais in url_paisos:
     df_pais = analitzar_pais(navegador,url_pais)
     indicadors_UN = indicadors_UN.combine_first(df_pais)
 
@@ -137,8 +141,3 @@ def obtenir_indicadors_UN():
 
 
   return indicadors_UN
-
-
- 
-
-
