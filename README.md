@@ -4,6 +4,8 @@
 
 ## WORLD HEALTH INDICATORS DATASET
 
+<div class=text-justify>
+  
 - Integrants del Grup: Xavier Ventura i Anna De la Torre.
 
 - Llenguatge de programació: Python.
