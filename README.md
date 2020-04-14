@@ -4,77 +4,31 @@
 
 ## WORLD HEALTH INDICATORS DATASET
 
-Integrants del Grup: Xavier Ventura i Anna De la Torre.
+- Integrants del Grup: Xavier Ventura i Anna De la Torre.
 
-# Llenguatge de programació: Python.
+- Llenguatge de programació: Python.
 
-# Data de captura de dades: 12 d'Abril de 2020.
+- Data de captura de dades: 14 d'Abril de 2020.
 
 
 # Descripció:
 
-# web scraping de diverses URL del lloc web de les Nacions Unides que contenen indicadors econòmics i socials pels diferents països 
-# del món. L'índex d'URLs es pot trobar al següent link: http://data.un.org/en/index.html. S'utilitza la llibreria Selenium de Python.
-
-# S'obtenen diversos indicadors demogràfics i de salut pública dels diferents països del món del lloc web del Banc Mundial a través d'API. L'índex dels diferents indicadors existents es pot trobar a: https://data.worldbank.org/indicator.
-
-# Es capturen els valors del indicadors pels anys 2005, 2010 i 2019.
-
-# S'obté la nomenclatura ISO pels països a través d'un procés de web scraping mitjançacnt la llibreria BeautifulSoup de Python.
-
-# Es crea un únic dataframe que aglutina els valors de diversos indicadors donats per les dues institucions i es guarda en un arxiu 
-# en format .csv. 
+El dataset World Health Indicators conté dades relacionades amb l'àmbit de la salut pública i dades socioeconòmiques referents a 227 països i regions del món. Ha estat elaborat a partir de dades proporcionades per l'Organització de les Nacions Unides i pel Banc Mundial a través dels seus llocs web. Ambdues són organitzacions que treballen pel desenvolupament humà, la seguretat i l'erradicació de la pobresa al món.
 
 
-# Llista indicadors UN data
-indicadors_UN = ["GDP: Gross domestic product (million current US$)", "GDP per capita (current US$)",
-                 "GDP growth rate (annual %, const. 2010 prices)", "Unemployment (% of labour force)",
-                 "Infant mortality rate (per 1000 live births)", "Health: Current expenditure (% of GDP)"]
+## Fitxers de codi
+
+El codi està compost per tres arxius en llenguatge Python:
+
+1. practica1.py – Arxiu principal, que crida a diverses funcions dels dos arxius següents, i obté el dataset i el guarda en un arxiu tipus .csv.
+
+2. practica1selenium.py – Arxiu que conté les funcions que realitzen el web scraping i la manipulació de dades del lloc web de les Nacions Unides utilitzant la llibreria Selenium de Python.
+
+3. practica1funcions.py – Arxiu que conté les funcions que obtenen les dades del lloc web del Banc Mundial a través d'API, i la nomenclatura ISO pels països amb web scraping utilitzant la llibreria BeautifulSoup de Python.
 
 
-# Llista d'indicadors World Bank
 
-indicadors_BM = ["SP.POP.TOTL", "SP.DYN.CBRT.IN", "SP.DYN.CDRT.IN", "SP.DYN.LE00.FE.IN", "SP.DYN.LE00.MA.IN",
-                 "SP.POP.65UP.TO.ZS", "SH.DTH.COMM.ZS", "SN.ITK.DEFC.ZS", "SH.DYN.AIDS.ZS", "SH.DTH.NCOM.ZS",
-                 "SH.MED.BEDS.ZS", "SH.MED.PHYS.ZS", "SH.SGR.PROC.P5"]
+## Referències
 
-# Population, total
-#https://data.worldbank.org/indicator/SP.POP.TOTL?view=chart
-
-# Birth rate, crude (per 1,000 people)
-# https://data.worldbank.org/indicator/SP.DYN.CBRT.IN?view=chart
-
-# Death rate, crude (per 1,000 people)
-#https://data.worldbank.org/indicator/SP.DYN.CDRT.IN?view=chart
-
-# Life expectancy at birth, female (years)
-#https://data.worldbank.org/indicator/SP.DYN.LE00.FE.IN?view=chart
-
-# Life expectancy at birth, male (years)
-#https://data.worldbank.org/indicator/SP.DYN.LE00.MA.IN?view=chart
-
-# Population ages 65 and above (% of total population)
-#https://data.worldbank.org/indicator/SP.POP.65UP.TO.ZS?view=chart
-
-# Prevalence of undernourishment (% of population)
-#https://data.worldbank.org/indicator/SN.ITK.DEFC.ZS?view=chart
-
-# Prevalence of HIV, total (% of population ages 15-49)
-#https://data.worldbank.org/indicator/SH.DYN.AIDS.ZS?view=chart
-
-# Cause of death, by communicable diseases and maternal, prenatal and nutrition conditions (% of total)
-#https://data.worldbank.org/indicator/SH.DTH.COMM.ZS?view=chart
-
-# Cause of death, by non-communicable diseases (% of total)
-#https://data.worldbank.org/indicator/SH.DTH.NCOM.ZS?view=chart
-
-# Hospital beds (per 1,000 people)
-#https://data.worldbank.org/indicator/SH.MED.BEDS.ZS?view=chart
-
-# Physicians (per 1,000 people)
-#https://data.worldbank.org/indicator/SH.MED.PHYS.ZS?view=chart
-
-# Number of surgical procedures (per 100,000 population)
-#https://data.worldbank.org/indicator/SH.SGR.PROC.P5?view=chart
-
-
+1. Lawson, R. (2015). Web Scraping with Python. Packt Publishing Ltd. Chapter 2. Scraping the Data.
+2. Mitchel, R. (2015). Web Scraping with Python: Collecting Data from the Modern Web. O’Reilly Media, Inc., 1005 Gravenstein Highway North, Sebastopol, CA 95472.
