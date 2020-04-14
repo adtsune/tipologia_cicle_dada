@@ -39,5 +39,7 @@ El codi està compost per tres arxius en llenguatge Python:
 
 ## Referències
 
-1. Lawson, R. (2015). Web Scraping with Python. Packt Publishing Ltd. Chapter 2. Scraping the Data.
-2. Mitchel, R. (2015). Web Scraping with Python: Collecting Data from the Modern Web. O’Reilly Media, Inc., 1005 Gravenstein Highway North, Sebastopol, CA 95472.
+1. Subirats, L., Calvo, M. (2018). _Web Scraping_. Editorial UOC.
+2. Masip, D. (2010). _El lenguaje Python_. Editorial UOC.
+3. Lawson, R. (2015). _Web Scraping with Python_. Packt Publishing Ltd. Chapter 2. Scraping the Data.
+4. Mitchel, R. (2015). _Web Scraping with Python: Collecting Data from the Modern Web_. O’Reilly Media, Inc., 1005 Gravenstein Highway North, Sebastopol, CA 95472.
