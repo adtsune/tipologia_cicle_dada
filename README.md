@@ -1,10 +1,10 @@
 # TIPOLOGIA I CICLE DE VIDA DE LES DADES
 
-# PRÀCTICA 1 - WEB SCRAPING 
+## PRÀCTICA 1 - WEB SCRAPING 
 
-# WORLD HEALTH INDICATORS DATASET
+## WORLD HEALTH INDICATORS DATASET
 
-# Integrants del Grup: Xavier Ventura i Anna De la Torre.
+Integrants del Grup: Xavier Ventura i Anna De la Torre.
 
 # Llenguatge de programació: Python.
 
