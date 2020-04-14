@@ -1,3 +1,5 @@
+<div style="text-align: justify">
+  
 # TIPOLOGIA I CICLE DE VIDA DE LES DADES
 
 ## PRÀCTICA 1 - WEB SCRAPING 
@@ -45,4 +47,4 @@ El codi està compost per tres arxius en llenguatge Python:
 3. Lawson, R. (2015). _Web Scraping with Python_. Packt Publishing Ltd. Chapter 2. Scraping the Data.
 4. Mitchel, R. (2015). _Web Scraping with Python: Collecting Data from the Modern Web_. O’Reilly Media, Inc., 1005 Gravenstein Highway North, Sebastopol, CA 95472.
 
-
+</div>
