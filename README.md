@@ -6,9 +6,9 @@
 
 <div class=text-justify>
   
-- Integrants del Grup: Xavier Ventura i Anna De la Torre.
+- Integrants del Grup: **Xavier Ventura i Anna De la Torre**.
 
-- Llenguatge de programació: Python.
+- Llenguatge de programació: **Python**.
 
 - Data de captura de dades: 14 d'Abril de 2020.
 
@@ -22,21 +22,21 @@ El dataset World Health Indicators conté dades relacionades amb l'àmbit de la 
 
 ### Fitxer descriptiu
 
-- Pràctica_1_Web_Scraping.pdf - Fitxer que conté la descripció de la pràctica, inclosa l'explicació dels diferents atributs del dataset presentat.
+- **Pràctica_1_Web_Scraping.pdf** - Fitxer que conté la descripció de la pràctica, inclosa l'explicació dels diferents atributs del dataset presentat.
 
 ### Fitxers de codi
 
 El codi està compost per tres arxius en llenguatge Python:
 
-- practica1.py – Arxiu principal, que crida a diverses funcions dels dos arxius següents, i obté el dataset i el guarda en un arxiu tipus .csv.
+- **practica1.py** – Arxiu principal, que crida a diverses funcions dels dos arxius següents, i obté el dataset i el guarda en un arxiu tipus .csv.
 
-- practica1selenium.py – Arxiu que conté les funcions que realitzen el web scraping i la manipulació de dades del lloc web de les Nacions Unides utilitzant la llibreria Selenium de Python.
+- **practica1selenium.py** – Arxiu que conté les funcions que realitzen el web scraping i la manipulació de dades del lloc web de les Nacions Unides utilitzant la llibreria Selenium de Python.
 
-- practica1funcions.py – Arxiu que conté les funcions que obtenen les dades del lloc web del Banc Mundial a través d'API, i la nomenclatura ISO pels països amb web scraping utilitzant la llibreria BeautifulSoup de Python.
+- **practica1funcions.py** – Arxiu que conté les funcions que obtenen les dades del lloc web del Banc Mundial a través d'API, i la nomenclatura ISO pels països amb web scraping utilitzant la llibreria BeautifulSoup de Python.
 
 ### Fitxer.csv
 
-- indicadors_practica1.csv - Es tracta del fitxer generat en format csv amb el dataset resultant.
+- **indicadors_practica1.csv** - Es tracta del fitxer generat en format csv amb el dataset resultant.
 
 
 ## Referències
@@ -45,3 +45,5 @@ El codi està compost per tres arxius en llenguatge Python:
 2. Masip, D. (2010). _El lenguaje Python_. Editorial UOC.
 3. Lawson, R. (2015). _Web Scraping with Python_. Packt Publishing Ltd. Chapter 2. Scraping the Data.
 4. Mitchel, R. (2015). _Web Scraping with Python: Collecting Data from the Modern Web_. O’Reilly Media, Inc., 1005 Gravenstein Highway North, Sebastopol, CA 95472.
+
+</div>
