@@ -1,10 +1,9 @@
 import requests
 from bs4 import BeautifulSoup
-import json
 import jsonstat
 import pandas as pd
 import os.path
-import time
+
 
 
 # llegir_pagina: Llegir una pàgina html que retornem en un objecte tipus String
@@ -13,7 +12,7 @@ def llegir_pagina(url, filename):
   # Si la pàgina s'ha descarregat previament, fem servir la copia local
   if os.path.isfile(filename):
 
-    f = open(filename,"r")
+    f = open(filename,"r", encoding="utf-8")
     contingut = f.read()
     f.close()
 
@@ -57,7 +56,14 @@ def llegir_indicador_world_bank(indicador):
   df.drop(columns="series",inplace=True)
   df.rename(columns={"country":"ISO3","Value":indicador},inplace=True)
 
+  # Assimilem les dades de 2018 a l'any 2019 a l'espera de la seva publicació
+  j = 0
+  for i in (df.loc[df.year == '2019']).index:
+    df.at[i, indicador] = (df.loc[df.year == '2018', indicador]).values[j]
+    j += 1
+
   return df
+
 
 # Funció que retorna un dataset amb la llista de paisos ISO3166 de la web del IBAN
 def obtenir_llista_iso3166():
@@ -67,7 +73,7 @@ def obtenir_llista_iso3166():
 
   ll = []
   for i in bs.body.table.tbody.find_all("tr"): 
-    r =i.find_all("td"); 
+    r =i.find_all("td")
     ll.append([r[0].text,r[1].text,r[2].text])
 
   df = pd.DataFrame(ll,columns=['country','ISO2','ISO3'])
