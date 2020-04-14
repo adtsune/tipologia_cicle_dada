@@ -4,7 +4,7 @@
 
 ## WORLD HEALTH INDICATORS DATASET
 
-<div class=text-justify>
+<div style="text-align: justify">
   
 - Integrants del Grup: **Xavier Ventura i Anna De la Torre**.
 
